@@ -1,2 +1,2 @@
-# 25Days_of_DSA-Challenge
-It contains different DS for different questions.
+# 25Days_of_DSA-Challenge 
+  - Checkout branches for the Day's challenges and more docs.
