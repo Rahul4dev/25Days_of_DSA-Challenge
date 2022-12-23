@@ -38,3 +38,55 @@ function sumZero(a) {
   }
 }
   // O(n**2)T and O(1)S
+// Solution two: 
+function sumZero(a) {
+  let left = 0;
+  let right = a.length -1;
+  while(left < right) {
+    let sum = a[left] + a[right];
+    if(sum === 0 ) return [a[i], a[j] ];
+    else if (sum < 0) left++;
+    else right--;
+  }
+}
+// O(n)T and O(1)S  // Better solution 
+
+// However if we want to save all those combinations which give the sumZero can be obtained from the array then we have to create an auxiliary object or array which will contain our combinations. Code will be..
+
+function sumZero(a) {
+  let left = 0;
+  let right = a.length -1;
+  let combos = [];
+  while(left < right) {
+    let sum = a[left] + a[right];
+    if(sum === 0 ) combos.push([a[left], a[right] ]) ;
+    else if (sum < 0) left++;
+    else right--;
+  }
+  return combos;
+}
+
+// we will get all the combinations of the sumZero possinble in the array, if not, will return empty array. If code does not run, Feel free to raise the issue.
+
+--------------------------------------------------------------------------------------------------------------------
+
+// Multiple pointer can also be used to count Unique values from a sorted array. It will return the no. of unique number used in the array. for eg,
+
+uniqueValue([1,1,2,2,3,4,4,5,5])  // 5 i.e, 1,2,3,4,5
+uniqueValue([1,1,1,1,1,1,1,1,5])  // 2  i.e, 1,5
+uniqueValue([])  // 0
+uniqueValue([-6,-4,-1,0,4,5,6])  // 7 every one is different
+
+// So code can be: 
+function uniqueValue(arr) {
+  let pointer1 = 0;
+  let uniqueEle = [];
+  while(pointer1 < arr.length) {
+    let element = arr[pointer1];
+    if(!(element in uniqueEle) {
+       uniqueEle.push(element);
+       pointer1++;
+     } else pointer1++;
+  }
+  return uniqueEle.length;
+
