@@ -24,7 +24,7 @@ checkTriplet(a,5)  // [2,3]
 let a = [-3,-2,-1,0,1,2,3];
 maxValue(a)  // 12  | 3 -(-3) | + | 0 - 6 | 
 
-..........................................................................................................
+...................................................................................................................................................................
 
 // Solution 1:  for sumZero
 
@@ -68,7 +68,7 @@ function sumZero(a) {
 
 // we will get all the combinations of the sumZero possinble in the array, if not, will return empty array. If code does not run, Feel free to raise the issue.
 
---------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Multiple pointer can also be used to count Unique values from a sorted array. It will return the no. of unique number used in the array. for eg,
 
@@ -79,14 +79,49 @@ uniqueValue([-6,-4,-1,0,4,5,6])  // 7 every one is different
 
 // So code can be: 
 function uniqueValue(arr) {
-  let pointer1 = 0;
-  let uniqueEle = [];
-  while(pointer1 < arr.length) {
-    let element = arr[pointer1];
-    if(!(element in uniqueEle) {
-       uniqueEle.push(element);
-       pointer1++;
-     } else pointer1++;
-  }
-  return uniqueEle.length;
+  if( arr.length === 0) return 0;
+  let pointer = 0;
+  for(let counter = 1; counter < arr.length; counter++) {
+      if(arr[pointer] !== arr[counter]) {
+          pointer++;
+          arr[pointer] = arr[counter];
+      }
+   }
+   return pointer + 1;
+}
+
+let a = [1,2,2,2,3,3,3,3,5,6,6,6,8,8,8,9,9,10,11,12]; // 10
+let b = [1,1,2,2,3,3,4,4,5,5]  // 5
+let c = [1,2,3,4,5,6,7,7,7,7,7]  // 7
+let d = []; // 0
+
+// we can also do it by using While loop: 
+
+function uniqueElements(arr) {
+    if(arr.length === 0 ) return 0;
+    let pointerL = 0;
+    let pointerN = 1;
+    while(pointerL < arr.length && pointerN < arr.length) {
+        if (arr[pointerL] !== arr[pointerN] ) {            
+            pointerL++;
+            arr[pointerL] = arr[pointerN];            
+        }  
+        pointerN++;      
+    }
+    return pointerL+1;
+}
+
+Both are O(n)T and O(1)S
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
