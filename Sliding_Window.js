@@ -45,3 +45,41 @@ function maxSumConsecutiveR(arr,n) {
  // Second loop is our sliding window of size n , which slides on every iteration, deleting extreme left value and adding extreme right value, which save us to add all the no. again. 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------    
+
+// Hacker Rank Question: SubArray Division   birthday of Ron
+// here we have to find he possible sum 'd' which can be made by adding 'm' consecutive no. from 'arr'.
+
+function birthday(arr, d, m) {
+    // Write your code here
+    if(m > arr.length) return null;
+    let counter = 0;
+    let maxSum = 0;
+    let tempSum = 0;
+    for(let i=0; i<m ; i++) {
+        maxSum += arr[i];       
+    }
+    tempSum = maxSum;
+    if(tempSum == d) counter++;
+    if(arr.length === 1 && tempSum === d) return 1;
+    for(let i= m ; i < arr.length; i++) {
+        tempSum = tempSum - arr[i-m] + arr[i];        
+        if( tempSum === d) {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+let a = [1,2,1,3,2];
+let b = [4]  (b,4,1) // 1
+let c = [1,1,1,1,1,1]  (c,4,2) // 0
+birthday(a,3,2);  // 2
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------    
+
+//
+
+
+
+
+
