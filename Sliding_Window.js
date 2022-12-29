@@ -77,9 +77,43 @@ birthday(a,3,2);  // 2
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------    
 
-//
+// If we want to find the longest common prefix from the array eg,
+ 
+let s = ["flower","flow","flight"];  // 'fl'
+let ss = ["profound","program","programmer"];  // 'pro'
 
+var longestCommonPrefix = function(strs) {
+    if(strs.length == 1) return strs[0] ; 
 
+    var prefix = strs[0] ; 
 
+    for(let i = 1 ; i < strs.length ; i++ ){
+       while( strs[i].indexOf(prefix) != 0){
+            prefix = prefix.substring(0, prefix.length - 1); 
+
+            if(prefix.length == 0 ) return '' ; 
+        }
+   }
+   return prefix ;
+}; 
+
+// OR 
+
+var longestCommonPrefix = function(strs) {
+    let current = strs[0] ;
+    let temp = "" ; 
+    for(let i = 1; i < strs.length; i++){
+        for(let j = 0; j < current.length; j++){
+            if(current[j] == strs[i][j]){
+                temp += current[j];
+            } else {
+                break;
+            }
+        }
+        current = temp ;
+        temp = "" ;
+    }
+    return current ;
+};
 
 
