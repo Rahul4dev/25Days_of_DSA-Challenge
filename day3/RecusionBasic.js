@@ -25,6 +25,41 @@ countDown(5);  // 5 4 3 2 1 All done!
 // So, In Recursion we have to consider two important thing, first, the base case where the function execution ends and the repeatetive input it takes during the function execute itself in call stack.
 
 ---------------------------------------------------------------------------------
+// write a function to print positive numbers till N  without using any loop
+
+function countTillN(N) {
+  let container = "";
+  print(n);
+  console.log(container);
+  function print(n) {
+    if(n==0) return 0;
+    print(n-1);
+    container += n + "";
+  }
+  return;
+}
+
+printTillN(4) // 1 2 3 4 
+
+// we can write it as 
+
+function  printNos(N, str = ''){
+        //code here
+        if(str == ''){
+            str = `${N}`;
+        } else {
+            str = `${N} ` + str;
+        }
+        if(N == 1){
+            console.log(str);
+            return;
+        }
+        this.printNos(N-1, str);
+}
+
+printNos(10);
+
+---------------------------------------------------------------------------------
 
 // Similarly, 
 function sumRange(num) {
@@ -73,3 +108,18 @@ function findOdds(arr) {
 
 findOdds([1,2,3,4,5,6,7,8,9]);  // [1, 3, 5, 7, 9]
 // O(n)T  O(n)S
+
+// we can also write it as 
+
+function collectOdd(arr) {
+   let newArr = [];
+   if(arr.length === 0) return newArr;
+   if(arr[0] % 2 !== 0 ) {
+      newArr.push(arr[0]);
+   }
+   newArr = newArr.concat(collectOdd(arr.slice(1)));
+   return newArr;
+}
+
+collectOdd([1,2,3,4,5,6,7,8,9]);
+
