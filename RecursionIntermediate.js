@@ -52,3 +52,27 @@ function fibonacciLoop(n) {
  // Time Complexity is O(n) as it loops over n value and find next value.
  // Space Complexity is O(1) as we are niether using auxiliary space in form of array of hash table, nor used recursion to call multiple functions in the call stack. 
  // So this is the best possible complexity of the fibonacci Algorithms.
+
+// So if we want to know the fibonacci series till n then we can save the value of next in the bag/container/ array so that we can return it. Code:
+
+function fibonacciTill(n) {
+    let bag = [0,1];
+    if(n <= 1) return bag;
+   
+    let prev =0;
+    let curr = 1;
+    let count =1 ;
+    let next ;
+    while( count < n) {
+        next = prev + curr;
+        bag.push(next);
+        prev = curr;
+        curr = next;
+        count++;
+    }    
+    return bag;
+}
+
+fibonacciTill(10);   //[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
