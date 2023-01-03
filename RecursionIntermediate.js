@@ -76,3 +76,30 @@ function fibonacciTill(n) {
 fibonacciTill(10);   //[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Similarly, if we consider a function which takes an array as input and pass its sum, but if elements of the array are nested inside another array, then it give sum of that nested array raised to the power to number represents how far that array is nested : e.g, 
+
+let a = [1,2,[3,4],[[2]]];  // 116   1+2+7**2 + (2**3)**2
+let b = [1,2,3,4] ; // 10   1+2+3+4
+let c = [1,[2],[3],[[4]]];  // 4110
+
+// so code will be: 
+
+function sumPower(array, power =1 ) {
+  let sum = 0;
+  for( const element of array) {
+      if(Array.isArray(element) {
+          sum += sumPower(element, power+1);
+      } else {
+          sum += element;
+      }
+  }
+  return Math.pow(sum, power);
+}
+
+sumPower(a);  // 116 
+let d = [3,[1,2],7,[1,[2]]];  // what will be the output??
+
+// If we talk about the complexity of the code: 
+// O(N)T where N is number of element in the array and subarray. 
+// O(D)S where D is nunber of depth/deep nesting done in the array.
