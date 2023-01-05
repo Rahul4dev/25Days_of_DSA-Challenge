@@ -74,8 +74,8 @@ function nonRepeating(s) {
 
 let s = 'abaRb150';
 nonRepeating(s);
-// O(N**2)T  and O(N)S
-
+// O(N**2)T  and O(1)S  
+// Space complexity is constant because maximum possible unique characters which we may traverse or create can be 26(lowercase letters) + 26(uppercase letters) + 10(numbers) = 62 which is a constant.
 // Or
 
 function nonRepeating(s) {
@@ -119,4 +119,5 @@ function nonRepeatingHT(s) {
 
 let s = 'abaRb150';
 nonRepeatingHT(s);
-//  O(N)T  and O(N)s   
+//  O(N)T  and O(1)s  
+//  Space complexity is constant because maximum possible unique characters which we may traverse or create in hash table can be 26(lowercase letters) + 26(uppercase letters) + 10(numbers) = 62 which is a constant.
